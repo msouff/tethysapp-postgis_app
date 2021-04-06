@@ -8,7 +8,5 @@ jobs:
     name: Run tethys-app-linter
     steps:
     - uses: actions/checkout@v2
-      with:
-        path: /
     - run: ls
     - run: ls /
