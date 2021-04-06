@@ -7,6 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     name: Run tethys-app-linter
     steps:
-    - uses: actions/checkout@v2
-    - run: ls
-    - run: ls /
+    - uses: Aquaveo/tethys-app-linter
