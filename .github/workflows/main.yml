@@ -35,4 +35,4 @@ jobs:
         method: 'POST'
         url: 'https://tethys-staging.byu.edu/apps/warehouse/install/git/'
         data: '{"url": "https://github.com/${{ github.repository }}.git", "branch": "${{ github.ref }}"'
-        customHeaders: '{"Authorization": "Token ${{ secrets.TETHYS_BYU_AUTH_TOKEN }}"}'
+        customHeaders: '{"Authorization": Token ${{ secrets.TETHYS_BYU_AUTH_TOKEN }}}'
