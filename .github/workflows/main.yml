@@ -29,10 +29,13 @@ jobs:
     name: Deployment
 #    needs: lint
     steps:
+    - name: Get Variables
+      id: vars
+      run: echo ::set-output name=short_ref::${GITHUB_REF##*/}
     - name: Deploy Stage
       uses: fjogeleit/http-request-action@master
       with:
         method: 'POST'
         url: 'https://tethys-staging.byu.edu/apps/warehouse/install/git/'
-        data: '{"url": "https://github.com/${{ github.repository }}.git", "branch": "${GITHUB_REF##*/}"}'
+        data: '{"url": "https://github.com/${{ github.repository }}.git", "branch": "${{ steps.vars.outputs.short_ref }}"}'
         customHeaders: '{"Authorization": "Token ${{ secrets.TETHYS_BYU_AUTH_TOKEN }}"}'
