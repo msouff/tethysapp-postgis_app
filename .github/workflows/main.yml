@@ -27,6 +27,7 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     name: Deployment
+    needs: lint
     steps:
     - name: Get Ref
       id: ref
@@ -49,7 +50,7 @@ jobs:
         echo ::set-output name=IID::${{ steps.deploy.outputs.response }}
     - name: Get Installation Status
       id: status
-      uses: Aquaveo/tethys-app-status@v1
+      uses: msouff/tethys-app-status@v1
       with:
         url: 'https://tethys-staging.byu.edu/apps/warehouse/install/git/status'
         install_id: '${{ steps.iid.outputs.IID }}'
