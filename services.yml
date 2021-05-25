@@ -1,0 +1,4 @@
+version: 1.0
+
+persistent:
+  flooded_addresses: tethys_staging_postgis
