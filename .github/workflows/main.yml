@@ -28,7 +28,7 @@ jobs:
           #ignore: ""
           #exclude: ""
           max-line-length: "120"
-          path: "/github/workspace"
+          #path: "."
   deployment:
     runs-on: ubuntu-latest
     name: Deployment
