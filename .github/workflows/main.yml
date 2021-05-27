@@ -52,7 +52,7 @@ jobs:
       id: iid
       run: |
         echo ${{ steps.deploy.outputs.response }}
-        echo ::set-output name=IID::${{ steps.deploy.outputs.response }}
+        echo ::set-output name=IID::${{ fromJson(steps.deploy.outputs.response).install_id }}
     - name: Get Installation Status
       id: status
       uses: msouff/tethys-app-status@v1
