@@ -1,11 +1,13 @@
 import json
 from django.shortcuts import render
+from tethys_sdk.routing import controller
 from tethys_sdk.gizmos import *
 from .model import AddressPoint, FloodExtent
 
 from tethysapp.postgis_app.app import PostgisApp as app
 
 
+@controller
 def home(request):
     """
     Controller for the app home page.
@@ -74,6 +76,7 @@ def home(request):
     return render(request, 'postgis_app/home.html', context)
 
 
+@controller(name='flood', url='flood')
 def flood(request):
     """
     Controller for flood page
@@ -141,6 +144,7 @@ def flood(request):
     return render(request, 'postgis_app/flood.html', context)
 
 
+@controller(name='flooded_addresses', url='flooded-addresses/{url_id}')
 def flooded_addresses(request, url_id):
     """
     Controller for flooded address page
@@ -249,6 +253,7 @@ def flooded_addresses(request, url_id):
     return render(request, 'postgis_app/flood.html', context)
 
 
+@controller(name='list', url='flooded-addresses/{url_id}/list')
 def list_flooded_addresses(request, url_id):
     """
     Controller for listing flooded Addresses
